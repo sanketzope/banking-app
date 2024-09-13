@@ -26,12 +26,14 @@ public class AccountController {
                 HttpStatus.CREATED);
     }
 
+    //Get account by id
     @GetMapping("/{id}")
     public ResponseEntity<AccountDto> getAccountById(@PathVariable Long id) {
         AccountDto accountDto = accountService.getAccountById(id);
         return ResponseEntity.ok(accountDto);
     }
 
+    //deposit money
     @PutMapping("/{id}/deposit")
     public ResponseEntity<AccountDto> deposit(@PathVariable Long id,
                                               @RequestBody Map<String,
